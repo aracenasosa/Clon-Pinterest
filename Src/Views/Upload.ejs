@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Finterest</title>
+    <%- include("Partials/Head") %>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+</head>
+
+<body>
+    <%- include("Partials/Nav") %>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-5 offset-3">
+                <h1 class="display-4 animated fadeIn">Upload</h1>
+                <div class="card animated fadeInLeft delay-1s">
+                    <div class="card-body">
+                        <form action="/upload" method="POST" enctype="multipart/form-data">
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" name="image" class="custom-file-input" id="inputGroupFile02"
+                                        required>
+                                    <label class="custom-file-label" for="inputGroupFile02"
+                                        aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="title" class="form-control" id="title"
+                                    placeholder="Add a Title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea name="description" class="form-control" placeholder="Add a Description"
+                                    id="description" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-outline-primary btn-block" id="buton" type="submit">Upload</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#buton').click(function () {
+            const title = $('#title').val();
+            const description = $('#title').val();
+            if (title == '' || description == '' || title == ' ' || description == ' ' || title == ',' || description == '.') {
+                swal({
+                    title: "Queria Brilla mmg?",
+                    text: "Enter the Fields",
+                    icon: "warning",
+                });
+            } else {
+                swal({
+                    title: "Good Job!",
+                    text: "Image Uploaded!",
+                    icon: "success",
+                });
+            }
+
+        });
+    </script>
+</body>
+
+</html>

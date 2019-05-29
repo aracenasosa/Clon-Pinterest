@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Finterest</title>
+    <%- include("Partials/Head") %>
+    <link rel="shortcut icon" href="Img/Icons/pinterest.png" type="image/x-icon" />
+</head>
+
+<body>
+    <%- include("Partials/Nav") %>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-6">
+                    <img src="<%= image.path %>" class="img-fluid" />
+            </div>
+            <div class="col-md-6">
+                <h1 class="display-4"> <%= image.title %> </h5>
+                <hr>
+                <p class="card-text lead"> <%= image.description %> </p>
+                <p class="card-text"><%= format(image.created_at) %></p>
+                <br>
+                <a href="/image/<%= image._id %>/delete" class="btn btn-outline-danger btn-block">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 1000px;"></div>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="card animated fadeInDown">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title"><%= image.title %></h5>
+                        <p class="card-text lead"><%= image.description %></p>
+                        <p class="card-text"><%= format(image.created_at) %></p>
+                        <a href="/image/<%= image._id %>/delete" class="btn btn-outline-danger btn-block">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
